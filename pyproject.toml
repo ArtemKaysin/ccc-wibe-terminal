@@ -1,0 +1,31 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sc-cli"
+version = "0.1.0"
+description = "Natural language to shell command via OpenAI – `sc`"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [{ name = "sc-cli authors" }]
+license = { text = "MIT" }
+dependencies = [
+  "openai>=1.3.7,<2.0.0",
+]
+keywords = ["cli", "llm", "openai", "shell", "powershell", "bash", "natural language"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.scripts]
+"ccc" = "sc_cli.main:cli"
+"ссс" = "sc_cli.main:cli"
+
+[project.urls]
+Homepage = "https://example.com"
+Issues = "https://example.com/issues"
+
+
