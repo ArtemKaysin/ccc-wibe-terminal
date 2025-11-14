@@ -52,7 +52,13 @@ def _confirm(prompt: str) -> bool:
 		ans = input(prompt).strip().lower()
 	except (EOFError, KeyboardInterrupt):
 		return False
-	return ans in ("y", "yes", "д", "да")
+	if ans == "":
+		return True
+	if ans in ("y", "yes", "д", "да"):
+		return True
+	if ans in ("n", "no", "н", "нет"):
+		return False
+	return False
 
 
 def _run_token_subcommand(argv: List[str]) -> int:
@@ -97,18 +103,18 @@ def _run_generate_and_execute(argv: List[str]) -> int:
 	if danger:
 		print(f"ВНИМАНИЕ: потенциально опасная команда. {reason}")
 		if not args.yes:
-			if not _confirm("Выполнить всё равно? [y/N]: "):
+			if not _confirm("Выполнить всё равно? [Y/n]: "):
 				return 4
 
 	if seems_multi_command(command) and not args.yes:
-		if not _confirm("Обнаружены составные команды (&&, ; или новые строки). Выполнить? [y/N]: "):
+		if not _confirm("Обнаружены составные команды (&&, ; или новые строки). Выполнить? [Y/n]: "):
 			return 5
 
 	if args.dry_run:
 		return 0
 
 	if not args.yes:
-		if not _confirm("Выполнить команду? [y/N]: "):
+		if not _confirm("Выполнить команду? [Y/n]: "):
 			return 6
 
 	rc = run_command(command, shell_name)
