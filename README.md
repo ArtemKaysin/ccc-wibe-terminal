@@ -52,8 +52,8 @@ sudo apt install -y git python3 python3-venv python3-pip pipx
 Вариант A — из клон‑репозитория (рекомендовано для последующего обновления из git):
 
 ```bash
-git clone https://github.com/<YOUR_GH_USERNAME>/ccc.git
-cd ccc
+git clone https://github.com/ArtemKaysin/ccc-wibe-terminal.git
+cd ccc-wibe-terminal
 sudo pipx install . --force
 ccc --version
 ```
@@ -61,7 +61,7 @@ ccc --version
 Обновление на сервере:
 
 ```bash
-cd /path/to/ccc
+cd /path/to/ccc-wibe-terminal
 git pull
 sudo pipx install . --force
 ```
@@ -69,7 +69,7 @@ sudo pipx install . --force
 Вариант B — без клона, напрямую из GitHub:
 
 ```bash
-sudo pipx install "git+https://github.com/<YOUR_GH_USERNAME>/ccc.git@main#egg=ccc" --force
+sudo pipx install "git+https://github.com/ArtemKaysin/ccc-wibe-terminal.git@main#egg=ccc" --force
 ```
 
 Настройка токена на сервере:
